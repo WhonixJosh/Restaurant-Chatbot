@@ -3,7 +3,7 @@ from nltk.chat.util import Chat, reflections
 # print(reflections)
 pairs = [
     [
-        r"(.*)(location|located|address|where is) ?",
+        r"(.*)(location|located|address|where is|) ?",
         ["Cada Dia is located at 2194 Veterans Memorial Blvd. Metairie, LA 70006.",]
     ],
     [
@@ -12,7 +12,7 @@ pairs = [
          "Today's specials are: Hot Tamales, Nashville Hot Chicken Quesedillas, and Three Bean Dip.",]
     ], 
     [
-        r"(.*)(hours|open|close|hours of operation|closed|open until)?",
+        r"(.*)(hours|open|close|hours of operation|closed|open until|when)?",
         ["Cada Dia is open Monday through Friday; 12pm-8pm, and Saturday through Sunday 1pm-10pm.",]
     ],
     [
