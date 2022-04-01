@@ -1,33 +1,88 @@
 import nltk
 from nltk.chat.util import Chat, reflections
 # print(reflections)
-pairs = [
+engl_pairs = [
     [
-        r"(.*)(location|located|address|where is|) ?",
+        r"(.*)(lo[a-z]+ion|lo[a-z]+ed|add.*es)(.*) ?",
         ["Cada Dia is located at 2194 Veterans Memorial Blvd. Metairie, LA 70006.",]
     ],
     [
-        r"(.*)(specials|special|special items|daily special|daily specials)",
+        r"(w[her]+e is)(.*) ?",
+        ["Cada Dia is located at 2194 Veterans Memorial Blvd. Metairie, LA 70006.",]
+    ],
+    [
+        r"(.*)(sp[a-z]+al)(.*) ?",
         ["Specials for today are: Blackened fish Tacos, Birria Tacos, and Horchata!",
-         "Today's specials are: Hot Tamales, Nashville Hot Chicken Quesedillas, and Three Bean Dip.",]
+        "Today's specials are: Hot Tamales, Nashville Hot Chicken Quesedillas, and Three Bean Dip.",]
     ], 
     [
-        r"(.*)(hours|open|close|hours of operation|closed|open until|when)?",
+        r"(.*)(h[a-z]+r|o[a-z]+n|c[a-z]+e|un[a-z]+l|wh[a-z]+n)(.*) ?",
         ["Cada Dia is open Monday through Friday; 12pm-8pm, and Saturday through Sunday 1pm-10pm.",]
     ],
     [
-        r"(thanks|thx|thank you)",
+        r"(th+[ankx])(.*) ?",
         ["Glad I can help, is there anything else you require?",]
     ],
+
     [
-        r"(.*)(menu|menus|serve|items|menu items)?",
+        r"(.*)(me[a-z]+u|se[a-z]+e)(.*) ?",
         ["Link to our full menu: www.cadadianola.com",]
+    ],
+    [
+        r"(.*)(ph[a-z]+e|ca[a-z]+l|r[a-z]+ch)(.*) ?",
+        ["To reach us, dial: (504)-832-7246",]
+    ],
+    [
+        r"(.*)(or[a-z]+r)(.*) ?",
+        ["To place an order go to: www.cadadianola.com/orders or call us at: (504)-832-7246 ",]
+    ],
+    
+    
+]
+esp_pairs = [
+    [
+        r"(.*)(ubicación|situado|ubicado|la dirección|¿dónde está) ?",
+        ["Cada Día está ubicado en 2194 Veterans Memorial Blvd. Metairie,LA 70006.",]
+    ],
+    [
+        r"(.*)(especiales|especial|artículos especiales |especial del día|especiales del día.) ?",
+        ["¡Los especiales para hoy son: tacos de pescado ennegrecido, tacos de birria y horchata!",
+         "Los especiales de hoy son: tamales calientes, quesadillas de pollo calientes de Nashville y dip de tres frijoles.",]
+    ], 
+    [
+        r"(.*)(Horas|abierto|cerrar|horas de operación|cerrado,|abierto hasta|¿cuándo) ?",
+        ["Cada Día está abierto de lunes a viernes desde el mediodía hasta las ocho de la noche y de sábado a domingo desde la una de la tardehasta las diez de la noche.",]
+    ],
+    [
+        r"(.*)(gracias)",
+        ["Me alegro de poder ayudarte. ¿hay algo más que necesites?",]
+    ],
+    [
+        r"(.*)(menú|menús|servir|artículos|elementos del menú|artículos delmenú) ?",
+        ["Enlace a nuestro menú completo: www.cadadianola.com",]
+    ],
+    [
+        r"(.*)(Número de teléfono|servicio al cliente número de representante|apoyo) ?",
+        ["Para comunicarse con atención al cliente marque: (504)-832-7246",]
     ],
     
 ]
 def chat():
-    print("Hi! I am a chatbot assistant at Cada Dia how may I assist you today?")
-    chat = Chat(pairs, reflections)
+    #begin greeting and confirm user intrest
+    to_stop= input("Hi! I am a chatbot assistant at Cada Dia \nWe are now serving brand new Nashville Hot Chicken Quesdillas!\nFind us at: www.cadadianola.com \nText STOP to opt-out "
+         "\n\n¡Hola! Soy asistente de chatbot en Cada Dia \n¡Ahora estamos sirviendo nuevas Quesdillas de pollo caliente de Nashville!\nEncuéntranos en: www.cadadianola.com\nEnvía STOP para darte de baja\n")
+    if to_stop.lower() == "stop":
+        quit()
+    #language selection
+    else:
+        language=input("\n\nFor English, text ENGLISH \nPara Español, texto ESPAÑOL\n")
+        while language.lower() != "english" and language.lower() != "español":
+            language=input("\n\nThat is an invalid option, please select a valid option.\nEsa es una opción no válida, seleccione una opción válida.\n")
+        if language.lower() == "english":
+            chat = Chat(engl_pairs, reflections)
+        if language.lower() == "español":
+            chat = Chat(esp_pairs, reflections)
+   
     chat.converse()
 #initiate the conversation
 if __name__ == "__main__":
