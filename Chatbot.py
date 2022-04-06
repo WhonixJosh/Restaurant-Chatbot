@@ -17,7 +17,9 @@ engl_pairs = [
     ], 
     [
         r"(.*)(h[a-z]+r|o[a-z]+n|c[a-z]+e|un[a-z]+l|wh[a-z]+n)(.*) ?",
-        ["Cada Dia is open Monday through Friday; 12pm-8pm, and Saturday through Sunday 1pm-10pm.",]
+        ["Cada Dia is open Monday through Friday; 12pm-8pm, and Saturday through Sunday 1pm-10pm.",
+         "Hours of operation are as follows: Monday through Friday; 12pm-8pm, and Saturday through Sunday 1pm-10pm.",
+        ]
     ],
     [
         r"(th+[ankx])(.*) ?",
@@ -26,17 +28,32 @@ engl_pairs = [
 
     [
         r"(.*)(me[a-z]+u|se[a-z]+e)(.*) ?",
-        ["Link to our full menu: www.cadadianola.com",]
+        ["Link to our full menu: www.cadadianola.com/menu.",]
     ],
     [
-        r"(.*)(ph[a-z]+e|ca[a-z]+l|r[a-z]+ch)(.*) ?",
-        ["To reach us, dial: (504)-832-7246",]
+        r"(.*)(ph[a-z]+e|ca[a-z]+l|r[a-z]+ch|nu[a-z]+er)(.*) ?",
+        ["To reach us, dial: (504)-832-7246.",
+        "Our phone number is : (504)-832-7246.",
+        "Call us at: (504)-832-7246 standard message and data rates may apply.",
+        ]
     ],
     [
         r"(.*)(or[a-z]+r)(.*) ?",
-        ["To place an order go to: www.cadadianola.com/orders or call us at: (504)-832-7246 ",]
+        ["To place an order go to: www.cadadianola.com/orders or call us at: (504)-832-7246.",]
     ],
-    
+    [
+        r"Is(.*)on [the] me[a-z]+u ?",
+        ["%1 may be on our menu: www.cadadianola.com/menu.",]
+    ],
+    [
+        r"Do y[a-z]+u h[a-z]+e (.*) ?",
+        ["%1 may be on our menu: www.cadadianola.com/menu.",]
+    ],
+    [
+        r"(.*) ?",
+        ["I didn't quite get that.",
+        "I'm sorry, please type something else.",]
+    ],
     
 ]
 esp_pairs = [
