@@ -1,6 +1,6 @@
 import nltk
 from nltk.chat.util import Chat, reflections
-# print(reflections)
+
 engl_pairs = [
     [
         r"(.*)(lo[a-z]+ion|lo[a-z]+ed|add.*es)(.*) ?",
