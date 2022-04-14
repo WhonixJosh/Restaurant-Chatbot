@@ -58,29 +58,59 @@ engl_pairs = [
 ]
 esp_pairs = [
     [
-        r"(.*)(ubicación|situado|ubicado|la dirección|¿dónde está) ?",
+        r"(.*)(Ub[a-z]+ón|si[az]+d|ub[a-z]+do|la dire[a-z]+ón)(.*) ?",
         ["Cada Día está ubicado en 2194 Veterans Memorial Blvd. Metairie,LA 70006.",]
     ],
     [
-        r"(.*)(especiales|especial|artículos especiales |especial del día|especiales del día.) ?",
+        r"(¿Dó[n]+de está)(.*) ?",
+        ["Cada Día está ubicado en 2194 Veterans Memorial Blvd. Metairie,LA 70006.",]
+    ],
+    [
+        r"(.*)(esp[a-z]+les|esp[a-z]+al|art[a-z]+los esp[a-z]+les|esp[a-z]+al [del] día|esp[a-z]+les [del] día)(.*) ?",
         ["¡Los especiales para hoy son: tacos de pescado ennegrecido, tacos de birria y horchata!",
          "Los especiales de hoy son: tamales calientes, quesadillas de pollo calientes de Nashville y dip de tres frijoles.",]
     ], 
     [
-        r"(.*)(Horas|abierto|cerrar|horas de operación|cerrado,|abierto hasta|¿cuándo) ?",
+        r"(.*)(h[or]+as|ab[a-z]+to|ce[a-z]+ar|h[or]+as [de] op[a-z]+ón|ce[a-z]+do,|ab[a-z]+to ha[s]+ta)(.*) ?",
         ["Cada Día está abierto de lunes a viernes desde el mediodía hasta las ocho de la noche y de sábado a domingo desde la una de la tardehasta las diez de la noche.",]
     ],
     [
-        r"(.*)(gracias)",
+        r"(¿Cu[al]+es [son] las h[or]+as)(.*) ?",
+        ["Cada Día está abierto de lunes a viernes desde el mediodía hasta las ocho de la noche y de sábado a domingo desde la una de la tardehasta las diez de la noche.",]
+    ],
+    [
+        r"(¿Cu[án]do son [las] h[or]+as)(.*) ?",
+        ["Cada Día está abierto de lunes a viernes desde el mediodía hasta las ocho de la noche y de sábado a domingo desde la una de la tardehasta las diez de la noche.",]
+    ],
+    [
+        r"(.*)(gr[a-z]+as)",
         ["Me alegro de poder ayudarte. ¿hay algo más que necesites?",]
     ],
     [
-        r"(.*)(menú|menús|servir|artículos|elementos del menú|artículos delmenú) ?",
+        r"(.*)(me[a-z]+ú|me[a-z]+s|se[a-z]+ir|ar[a-z]+los|el[a-z]+os [del] me[a-z]+ú|ar[a-z]+los del[menú])(.*) ?",
         ["Enlace a nuestro menú completo: www.cadadianola.com",]
     ],
     [
-        r"(.*)(Número de teléfono|servicio al cliente número de representante|apoyo) ?",
+        r"(.*)(n[a-z]+ro [de] te[a-z]+no|se[a-z]+io [al] cl[ien]+te|a[a-z]+yo) ?",
         ["Para comunicarse con atención al cliente marque: (504)-832-7246",]
+    ],
+    [
+        r"(.*)(pe[a-z]+o)(.*) ?",
+        ["Para realizar y ordenar ir a: www.cadadianola.com/orders o llámanos al: (504)-832-7246.",]
+    ],
+    [
+        r"Es(.*)en [el] me[a-z]+ú ?",
+        ["%1 puede estar en nuestro menú: www.cadadianola.com/menu.",]
+    ],
+    [
+        r"¿Ti[en]+es (.*) ?",
+        ["%1 puede estar en nuestro menú: www.cadadianola.com/menu.",]
+    ],
+    [
+        r"(.*) ?",
+        ["No entendí bien eso.",
+         "Lo siento, por favor pregunta algo más..",
+         "Lo siento, por favor escribe algo más.",]
     ],
     
 ]
